@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace OMS
 {
-    public partial class Form1 : Form
+    public partial class Profile : Form
     {
-        public Form1()
+        public Profile()
         {
             InitializeComponent();
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
