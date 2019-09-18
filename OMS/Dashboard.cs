@@ -39,6 +39,11 @@ namespace OMS
             this.Hide();
             new Order().Show();
         }
+         private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -46,11 +51,7 @@ namespace OMS
             new Order().Show();
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void ProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
