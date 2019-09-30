@@ -23,9 +23,20 @@ namespace OMS
 
         }
 
+        private void LoadData()
+        {
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+            SqlDataAdapter ProductData = new SqlDataAdapter("SELECT * FROM [Product]", con);
+            DataTable dt = new DataTable();
+            ProductData.Fill(dt);
+            OrderGrid.DataSource = dt;
+
+        }
+
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            SqlConnection conn= new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\db\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
             conn.Open();
             SqlCommand sql = new SqlCommand("ProductCreate", conn);
             sql.CommandType = CommandType.StoredProcedure;
@@ -33,41 +44,40 @@ namespace OMS
             sql.Parameters.AddWithValue("@ProductDescription", txtProdDescription.Text);
             sql.Parameters.AddWithValue("@ProductType", txtProdType.Text);
             sql.ExecuteNonQuery();
-            conn.Close();
+        
             MessageBox.Show("Order Added Successfully");
+            LoadData();
 
-            this.productTableAdapter.Fill(this.dataDataSet.Product);
 
         }
 
         private void Order_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataDataSet.Product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.dataDataSet.Product);
+            // TODO: This line of code loads data into the 'dataDataSet1.Product' table. You can move, or remove it, as needed.
 
-        }
+            LoadData();
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < OrderGrid.Rows.Count; i++)
-            {
 
-                DataGridViewRow dr = OrderGrid.Rows[i];
-                if (dr.Selected == true)
-                {
-                    SqlConnection conn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\shres\\Documents\\Data.mdf; Integrated Security = True; Connect Timeout = 30");
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from Product where ProductName ='" + i + "'", conn);
-    
-                    cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Deleted");
-                    conn.Close();
-                }
-
-            }
         }
         
+  
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+            conn.Open();
+            SqlCommand sql = new SqlCommand("Delete From Product Where ProductName = @ProductName", conn);
+            sql.CommandType = CommandType.Text;
+            sql.Parameters.AddWithValue("@ProductName", txtProdName.Text);
+            sql.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Order Deleted Successfully");
+            LoadData();
+
+
+        }
+
+
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,6 +98,61 @@ namespace OMS
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+            conn.Open();
+            SqlCommand updatesql = new SqlCommand("UPDATE [Product] Set ProductType=@ProductType, ProductDescription=@ProductDescription Where ProductName=@ProductName", conn);
+            updatesql.CommandType = CommandType.Text;
+            updatesql.Parameters.AddWithValue("@ProductName", txtProdName.Text);
+            updatesql.Parameters.AddWithValue("@ProductType", txtProdType.Text);
+            updatesql.Parameters.AddWithValue("@ProductDescription", txtProdDescription.Text);
+            updatesql.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Order Updated Successfully");
+            LoadData();
+        }
+
+        private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult logout = MessageBox.Show("Are you sure you want to log out", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (logout == DialogResult.OK)
+            {
+               
+                this.Hide();
+                new Login().Show();
+            }
+            if (logout == DialogResult.Cancel)
+            {
+                this.Show();
+            }
+            
+        }
+
+        private void Txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+            SqlDataAdapter ProductData = new SqlDataAdapter("select * from Product where ProductName like '" + txt_Search.Text + "%'", con);
+            DataTable dt = new DataTable();
+            ProductData.Fill(dt);
+            OrderGrid.DataSource = dt;
+        }
+
+        private void LogOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DialogResult logout = MessageBox.Show("Are you sure you want to log out", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (logout == DialogResult.OK)
+            {
+
+                this.Hide();
+                new Login().Show();
+            }
+            if (logout == DialogResult.Cancel)
+            {
+                this.Show();
+            }
         }
     }
 }

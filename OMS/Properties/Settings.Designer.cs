@@ -33,5 +33,27 @@ namespace OMS.Properties {
                 return ((string)(this["DataConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\db\\Data.mdf;I" +
+            "ntegrated Security=True;Connect Timeout=30")]
+        public string DataConnectionString1 {
+            get {
+                return ((string)(this["DataConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Data.mdf;Inte" +
+            "grated Security=True;Connect Timeout=30")]
+        public string DataConnectionString2 {
+            get {
+                return ((string)(this["DataConnectionString2"]));
+            }
+        }
     }
 }

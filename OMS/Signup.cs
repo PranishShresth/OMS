@@ -30,7 +30,7 @@ namespace OMS
                 MessageBox.Show("UserName and Password is mandatory ");
             else
             {
-                SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\db\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+                SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
                 {
                     con.Open();
                     SqlCommand sqlcmd = new SqlCommand("UserAdd", con);

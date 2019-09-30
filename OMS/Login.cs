@@ -16,7 +16,7 @@ namespace OMS
         public Login()
         {
             InitializeComponent();
-            txtPass.PasswordChar = '*';
+            
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -28,7 +28,7 @@ namespace OMS
      
         private void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\db\\Data.mdf;Integrated Security=True;Connect Timeout = 30;"); // making connection   
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;"); // making connection   
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM [Login] WHERE UserName='" + txtUser.Text + "' AND Password='" + txtPass.Text + "'", con);
             /* in above line the program is selecting the whole data from table and the matching it with the user name and password provided by user. */
             DataTable dt = new DataTable(); //this is creating a virtual table  
@@ -39,6 +39,7 @@ namespace OMS
                 /*Will take to dashboard page*/
                 this.Hide();
                 new Dashboard(txtUser.Text).Show();
+                MessageBox.Show("Login success");
             }
             else
                 MessageBox.Show("Invalid username or password");
@@ -55,5 +56,7 @@ namespace OMS
         {
             Application.Exit();
         }
+
+       
     }
 }

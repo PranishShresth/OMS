@@ -15,20 +15,12 @@ namespace OMS
         public Dashboard(string Username)
         {
             InitializeComponent();
-         
             label5.Text = Username;
+         
+            
         }
 
-        private void InventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+       
         private void PictureBox5_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -53,13 +45,49 @@ namespace OMS
 
         private void ProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
+            new Profile().Show();
+            this.Hide();
+       }
 
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult logout = MessageBox.Show("Are you sure you want to log out", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (logout == DialogResult.OK)
+            {
+
+                this.Hide();
+                new Login().Show();
+            }
+            if (logout == DialogResult.Cancel)
+            {
+                this.Show();
+            }
+
+        }
+
+     
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            new Login().Show();
+            new Order().Show();
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Customer().Show();
+
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

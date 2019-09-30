@@ -27,7 +27,7 @@ namespace OMS
         {
             if (txtNewPassword.Text == txtConfirmPassword.Text)
             {
-                SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\db\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
+                SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
                 conn.Open();
                 SqlCommand sql = new SqlCommand("ResetPassword", conn);
                 sql.CommandType = CommandType.StoredProcedure;
