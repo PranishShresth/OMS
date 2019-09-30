@@ -1,4 +1,6 @@
-# OMS
+# 
+ORDER MANAGEMENT SYSTEM
+
 Project 1 - 2019
 
 This repository is made for the project 1 of the ITECH 3208 -2019.
