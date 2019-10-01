@@ -26,17 +26,6 @@ namespace OMS
             Application.Exit();
         }
 
-        private void PictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new Order().Show();
-        }
-
-        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            new Order().Show();
-        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -46,7 +35,7 @@ namespace OMS
         private void ProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Profile().Show();
-            this.Hide();
+    
        }
 
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,7 +58,7 @@ namespace OMS
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+      
             new Order().Show();
         }
 
@@ -80,7 +69,6 @@ namespace OMS
 
         private void Button9_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new Customer().Show();
 
         }

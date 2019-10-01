@@ -58,9 +58,9 @@ namespace OMS
         private void Txt_Search_Cust_TextChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\My Projects\\OMS\\OMS\\Data.mdf;Integrated Security=True;Connect Timeout = 30;");
-            SqlDataAdapter ProductData = new SqlDataAdapter("select * from Product where CustName like '" + txt_Search_Cust.Text + "%'", con);
+            SqlDataAdapter CustomerData = new SqlDataAdapter("select * from [Customer] where CustName like '" + txt_Search_Cust.Text + "%'", con);
             DataTable dt = new DataTable();
-            ProductData.Fill(dt);
+            CustomerData.Fill(dt);
             CustomerGridView.DataSource = dt;
         }
 
@@ -79,6 +79,27 @@ namespace OMS
             {
                 this.Show();
             }
+        }
+
+        private void ProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Profile().Show();
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }

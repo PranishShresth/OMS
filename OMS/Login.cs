@@ -38,7 +38,8 @@ namespace OMS
                 
                 /*Will take to dashboard page*/
                 this.Hide();
-                new Dashboard(txtUser.Text).Show();
+                Dashboard frm = new Dashboard(txtUser.Text);
+                frm.Show();
                 MessageBox.Show("Login success");
             }
             else

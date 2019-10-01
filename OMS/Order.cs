@@ -154,5 +154,11 @@ namespace OMS
                 this.Show();
             }
         }
+
+        private void ProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Profile().Show();
+        }
     }
 }

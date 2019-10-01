@@ -127,7 +127,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(290, 24);
+            this.label3.Location = new System.Drawing.Point(288, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(178, 28);
             this.label3.TabIndex = 15;
@@ -163,15 +163,14 @@
             // 
             // menuStrip3
             // 
-            this.menuStrip3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.menuStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip3.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip3.MinimumSize = new System.Drawing.Size(80, 30);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip3.Size = new System.Drawing.Size(680, 24);
+            this.menuStrip3.Size = new System.Drawing.Size(680, 30);
             this.menuStrip3.TabIndex = 19;
             this.menuStrip3.Text = "menuStrip3";
             // 
@@ -184,14 +183,15 @@
             this.accountToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 0, 15, 0);
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // profileToolStripMenuItem
             // 
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.profileToolStripMenuItem.Text = "Profile";
+            this.profileToolStripMenuItem.Click += new System.EventHandler(this.ProfileToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
